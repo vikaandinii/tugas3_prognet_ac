@@ -6,7 +6,7 @@ $password = "";
 $database = "sistem_kontrol_ac";
 
 try {
-    // Pakai PDO untuk koneksi ke database
+    //  PDO untuk koneksi ke database
     $pdo = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
@@ -16,7 +16,7 @@ try {
     exit();
 }
 
-// Mengontrol status AC
+// Fungsi untuk melihat status AC
 function kontrol_ac($suhu, $kelembapan) {
     if ($suhu < 18 && $kelembapan < 40) {
         return "AC Mati";
@@ -65,13 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <title>Sistem Pengontrol Suhu AC</title>
+    <title>Sistem untuk Melihat Status AC</title>
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <h2>Sistem Pengontrol Suhu AC</h2>
+            <h2>Sistem untuk Melihat Status AC</h2>
 
             <form id="form-input" method="POST">
                 <div class="form-group">
@@ -128,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tbody>
             </table>
             <?php endif; ?>
-        </div> 
+        </div>
     </div>
 </body>
 </html>
